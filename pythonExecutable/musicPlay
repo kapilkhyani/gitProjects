@@ -1,0 +1,55 @@
+#!/usr/bin/python
+import os
+import subprocess
+import time
+import datetime
+from random import shuffle
+import random
+import play
+
+
+
+def ChooseSong():
+    dirNpath = "/home/pi/gitprojects/rasberryPiAlarm/";
+    dirpath = dirNpath + "/music"
+    alarmdir = os.listdir(dirpath)
+
+    print ("Make you choice ")
+    newPair = {k: v for k, v in enumerate(alarmdir)}
+    newPair.update({'r': 'Random'})
+    for filesIndex, files in newPair.items():
+        if (files.endswith(".mp3") or files.endswith(".mp4")):
+            print (str(filesIndex) + " => " + files)
+
+    ch = input("Enter Choice ")
+    play.playMusic(newPair, ch)
+    chooseAgain()
+
+def chooseAgain():
+    ch1 = raw_input("Enter Next Step  \n 1. Close Player  \n 2. Choose again ")
+    ch = int(ch1)
+    if(ch == 1):
+        os.system("sudo ps -ef | grep omx | grep -v grep | awk '{print $2}' | xargs kill")
+        os.system('clear')
+        exit()
+    elif (ch == 2):
+        os.system("sudo ps -ef | grep omx | grep -v grep | awk '{print $2}' | xargs kill")
+        os.system('clear')
+        ChooseSong()
+    else:
+        os.system("sudo ps -ef | grep omx | grep -v grep | awk '{print $2}' | xargs kill")
+        os.system('clear')
+        chooseAgain()
+
+ChooseSong()
+
+exit()
+# command1 = 'omxplayer '+dirpath+'/'+files
+# file.write("\t command executed : "+command1+"\n")
+# # os.system('omxplayer '+dirpath+'/'+files)
+# proc = subprocess.Popen("omxplayer " +dirpath+'/'+files, shell=True)
+# ranNumber = random.randint(22, 28)*10
+# time.sleep(ranNumber)
+# os.system("sudo ps -ef | grep omx | grep -v grep | awk '{print $2}' | xargs kill")
+
+

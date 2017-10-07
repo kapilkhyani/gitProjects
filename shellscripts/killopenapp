@@ -1,0 +1,6 @@
+#!/bin/bash
+
+sudo ps -ef | grep leaf | grep -v grep | awk '{print $2}' | xargs kill
+sudo ps -ef | grep Team | grep -v grep | awk '{print $2}' | xargs kill
+sudo ps -ef | grep chromium | grep -v grep | awk '{print $2}' | xargs kill
+sudo ps -ef | grep pcmanfm | grep -v grep | awk '{print $2}' | xargs kill

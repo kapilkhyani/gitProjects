@@ -1,0 +1,3 @@
+#!/bin/bash
+
+sudo omxplayer /home/pi/Downloads/music/omChant.mp4
