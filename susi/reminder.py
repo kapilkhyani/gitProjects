@@ -9,8 +9,8 @@ from time import mktime
 def writeReminder():
     start.clearSn()
     newcursor = connectionMysql.getMysqlconnection()
-    x = input("Enter your Reminder \n")
-    tp = input("Enter Reminder Priority \n")
+    x = raw_input("Enter your Reminder \n")
+    tp = raw_input("Enter Reminder Priority \n")
     if tp=="":
         tp = 0
     t = datetime.now()

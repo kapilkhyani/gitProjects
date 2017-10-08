@@ -9,8 +9,8 @@ from time import mktime
 def writeTask():
     start.clearSn()
     newcursor = connectionMysql.getMysqlconnection()
-    x = input("Enter your Task \n")
-    tp = input("Enter Task Priority \n")
+    x = raw_input("Enter your Task \n")
+    tp = raw_input("Enter Task Priority \n")
     if tp=="":
         tp = 0
     t = datetime.now()

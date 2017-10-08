@@ -9,7 +9,7 @@ from time import mktime
 def writeThought():
     start.clearSn()
     newcursor = connectionMysql.getMysqlconnection()
-    x = input("Enter your thought \n")
+    x = raw_input("Enter your thought \n")
     t = datetime.now()
     unix_secs = mktime(t.timetuple())
     unix_secs = int(unix_secs)

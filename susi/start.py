@@ -16,7 +16,7 @@ def clearSn():
     os.system('clear')
 
 def main():
-    clearSn()
+    # clearSn()
     newarr = ['Write thought',
               'Show Thoughts',
               'Write Task',
@@ -29,7 +29,7 @@ def main():
     for i in newarr:
         counterN = counterN+1
         choiceStr = str(choiceStr)+"\n "+str(counterN)+' '+str(i)
-    x = input("Enter your choice "+choiceStr+"\n")
+    x = raw_input("Enter your choice "+choiceStr+"\n")
     x = int(x)
     if x == 1:
         thought.writeThought()
