@@ -21,7 +21,7 @@ def writeThought():
 def showThought():
     start.clearSn()
     newcursor = connectionMysql.getMysqlconnection()
-    newcursor.execute("SELECT * from thoughts order by id desc limit 10 ")
+    newcursor.execute("SELECT * from thoughts order by rand() limit 10 ")
     data = newcursor.fetchall()
     for tData in data:
         newStr = tData['thought'].replace('\n', '')

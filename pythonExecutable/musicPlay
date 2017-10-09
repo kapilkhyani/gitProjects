@@ -6,20 +6,28 @@ import datetime
 from random import shuffle
 import random
 import play
+import sys
 
 
 
 def ChooseSong():
-    dirNpath = "/home/pi/gitprojects/rasberryPiAlarm/";
+    dirNpath = "/home/pi/gitProjects/rasberryPiAlarm";
     dirpath = dirNpath + "/music"
     alarmdir = os.listdir(dirpath)
 
     print ("Make you choice ")
     newPair = {k: v for k, v in enumerate(alarmdir)}
     newPair.update({'r': 'Random'})
+    counterLines = 0
     for filesIndex, files in newPair.items():
+        counterLines = counterLines +1
         if (files.endswith(".mp3") or files.endswith(".mp4")):
-            print (str(filesIndex) + " => " + files)
+            trimFiles = files[0:15]
+            print str(filesIndex) + " => " + trimFiles +"\t\t\t",
+        if counterLines == 3:
+            print ('')
+            counterLines = 0
+    print ('')
 
     ch = input("Enter Choice ")
     play.playMusic(newPair, ch)
