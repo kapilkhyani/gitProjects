@@ -7,7 +7,7 @@ alert('wow')
 });
 
 function callajax(){
-ch =$("#choice").val()
+ch =$("#choice").val();
 alert(ch);
 }
 </script>
